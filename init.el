@@ -14,6 +14,12 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
+ '(company-backends
+   (quote
+    ((company-dabbrev-code :separate company-capf company-keywords)
+     company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
+     (company-dabbrev-code company-gtags company-etags company-keywords)
+     company-oddmuse company-dabbrev)))
  '(custom-enabled-themes (quote (deeper-blue)))
  '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))

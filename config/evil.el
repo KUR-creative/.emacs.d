@@ -32,3 +32,21 @@
            (evil-quit)
            (elscreen-kill))
        (evil-quit bang)))
+
+(defvar my-leader-map (make-sparse-keymap) "evil leader keymap")
+(use-package evil-magit
+  :config
+  ;; gi: open magit status
+  (define-key evil-normal-state-map "g" my-leader-map)
+  (define-key my-leader-map "i" 'magit-status)
+  ;; status mode
+  (define-key magit-status-mode-map "j" 'magit-section-forward)  ; n -> j
+  (define-key magit-status-mode-map "k" 'magit-section-backward) ; p -> k
+  (define-key magit-status-mode-map "J" 'magit-status-jump)      ; j -> J
+  (define-key magit-status-mode-map "x" 'magit-delete-thing)     ; k -> x
+  ;; diff mode
+  (define-key magit-diff-mode-map "j" 'magit-section-forward)          ; n -> j
+  (define-key magit-diff-mode-map "k" 'magit-section-backward)         ; p -> k
+  (define-key magit-diff-mode-map "J" 'magit-jump-to-diffstat-or-diff) ; j -> J
+  (define-key magit-diff-mode-map "x" 'magit-delete-thing)             ; k -> x
+)

@@ -1,0 +1,13 @@
+*
+!init.el
+!.gitignore
+
+#config/*~
+!config
+!config/*
+
+#ivy-smex/*~
+!ivy-smex
+!ivy-smex/*
+
+*~

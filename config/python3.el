@@ -15,3 +15,5 @@
 
 (define-key python-mode-map (kbd "<f5>") 'run-main)
 (define-key python-mode-map (kbd "<f4>") 'run-this)
+
+(add-hook 'inferior-python-mode-hook 'toggle-truncate-lines)

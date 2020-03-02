@@ -25,7 +25,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (evil-tabs company use-package-hydra smex evil ivy-explorer))))
+    (rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

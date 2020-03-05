@@ -10,3 +10,4 @@
 (global-display-line-numbers-mode) ;emacs 26
 ;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 ;(add-hook 'prog-mode-hook 'toggle-truncate-lines)
+(setq scroll-step 1)

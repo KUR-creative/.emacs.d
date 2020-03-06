@@ -4,7 +4,8 @@
   "run main.py"
   (interactive)
   (save-some-buffers t)
-  (async-shell-command "python main.py"))
+  (let ((default-directory (locate-dominating-file "." "main.py")))
+    (async-shell-command "python main.py")))
 
 
 (defun run-this ()

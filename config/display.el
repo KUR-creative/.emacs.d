@@ -11,3 +11,5 @@
 ;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 ;(add-hook 'prog-mode-hook 'toggle-truncate-lines)
 (setq scroll-step 1)
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)

@@ -49,4 +49,7 @@
   (define-key magit-diff-mode-map "k" 'magit-section-backward)         ; p -> k
   (define-key magit-diff-mode-map "J" 'magit-jump-to-diffstat-or-diff) ; j -> J
   (define-key magit-diff-mode-map "x" 'magit-delete-thing)             ; k -> x
-)
+  )
+
+(setq-default evil-symbol-word-search t)
+(setq-default evil-search-module 'evil-search)

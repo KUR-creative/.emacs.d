@@ -25,7 +25,8 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer))))
+    (typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
+ '(typescript-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -38,8 +39,7 @@
  '(rainbow-delimiters-depth-6-face ((t (:foreground "yellow"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "orchid"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "spring green"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "sienna1"))))
- )
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "sienna1")))))
 
 ;;----------------------------------------------------------------
 (require 'smex)

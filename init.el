@@ -25,7 +25,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
+    (prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
  '(typescript-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -53,6 +53,8 @@
 (add-to-list 'load-path "~/.emacs.d/ivy-smex/")
 (require 'ivy-smex)
 (global-set-key (kbd "M-x") 'ivy-smex)
+
+(setq make-backup-files nil)
 
 ;;----------------------------------------------------------------
 ;; You can split init.el with `load-file` function

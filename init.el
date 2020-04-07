@@ -25,7 +25,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
+    (markdown-mode impatient-mode prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
  '(typescript-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

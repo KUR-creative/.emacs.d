@@ -14,3 +14,5 @@
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook #'show-paren-mode)
+
+(global-set-key (kbd "<f2>") 'dired-jump)

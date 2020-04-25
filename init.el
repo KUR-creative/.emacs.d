@@ -66,3 +66,4 @@
 (load-directory "~/.emacs.d/config")
 
 ;; M-: major-mode
+

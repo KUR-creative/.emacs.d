@@ -66,4 +66,4 @@
 (load-directory "~/.emacs.d/config")
 
 ;; M-: major-mode
-
+(setq-default indent-tabs-mode nil)

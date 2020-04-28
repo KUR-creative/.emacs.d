@@ -18,7 +18,7 @@
   "run python file in current buffer"
   (interactive)
   (save-some-buffers t)
-  (async-shell-command (concat "python " (buffer-file-name))))
+  (async-shell-command (concat "python '" (buffer-file-name)"'")))
 
 (define-key python-mode-map (kbd "<f5>") 'run-main)
 (define-key python-mode-map (kbd "<f4>") 'run-this)

@@ -17,3 +17,8 @@
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode)))
+
+(use-package prettier-js
+  :ensure t
+  :config
+  (setq prettier-js-args '("--print-width" "70")))

@@ -16,3 +16,10 @@
 (add-hook 'prog-mode-hook #'show-paren-mode)
 
 (global-set-key (kbd "<f2>") 'dired)
+
+;111111111222222222333333333344444444445555555555666666666677777
+(set-face-attribute 'default nil
+                    :family "Source Code Pro"
+                    :height 105
+                    :weight 'normal
+                    :width 'normal)

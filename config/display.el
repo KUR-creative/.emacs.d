@@ -20,6 +20,6 @@
 ;111111111222222222333333333344444444445555555555666666666677777
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 105
+                    :height 110
                     :weight 'normal
                     :width 'normal)

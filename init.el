@@ -67,3 +67,4 @@
 
 ;; M-: major-mode
 (setq-default indent-tabs-mode nil)
+(setq make-backup-files nil)

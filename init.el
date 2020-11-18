@@ -15,17 +15,15 @@
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
  '(company-backends
-   (quote
-    ((company-dabbrev-code :separate company-capf company-keywords)
+   '((company-dabbrev-code :separate company-capf company-keywords)
      company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
      (company-dabbrev-code company-gtags company-etags company-keywords)
-     company-oddmuse company-dabbrev)))
- '(custom-enabled-themes (quote (deeper-blue)))
+     company-oddmuse company-dabbrev))
+ '(custom-enabled-themes '(deeper-blue))
  '(inhibit-startup-screen t)
- '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   (quote
-    (markdown-mode impatient-mode prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer)))
+   '(gnu-elpa-keyring-update elscreen-buffer-group markdown-mode impatient-mode prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer))
  '(typescript-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -68,3 +66,14 @@
 ;; M-: major-mode
 (setq-default indent-tabs-mode nil)
 (setq make-backup-files nil)
+
+;;----------------------------------------------------------------
+;(desktop-save-mode 1)
+
+;; Order is important! revive -> elscreen
+(load-file "~/.emacs.d/libs/revive/revive.el")
+(load-file "~/.emacs.d/libs/elscreen-persist/elscreen-persist.el")
+
+(require 'elscreen-persist)
+;(elscreen-persist-mode 1)
+(setq desktop-files-not-to-save "")

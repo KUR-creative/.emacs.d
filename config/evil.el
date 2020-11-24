@@ -53,3 +53,7 @@
 
 (setq-default evil-symbol-word-search t)
 (setq-default evil-search-module 'evil-search)
+
+
+(add-to-list 'evil-emacs-state-modes 'fundamental-mode) ;; Disable evli in *cider-error*
+;(add-to-list 'evil-emacs-state-modes 'help-mode)

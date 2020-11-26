@@ -18,3 +18,18 @@
 (define-key clojure-mode-map (kbd "<f4>") 'cider-load-buffer)
 ;(define-key clojure-mode-map (kbd "<f5>") 'clj/save-eval-all)
 (define-key clojure-mode-map (kbd "<f8>") 'clj/save-eval-test-all)
+
+;; ----------------------------------------------------------------------
+;; Cider evil bindings
+
+;; It follows CIDER's default bindings. 
+;; C-c C-k => mck
+;; C-c C-c => mcc
+;; ref: https://emacs.stackexchange.com/questions/31390/how-to-define-mode-specific-keys-in-evil-mode
+
+(require 'evil)
+(evil-define-key 'normal clojure-mode-map (kbd "mck") 'cider-load-buffer)
+(evil-define-key 'normal clojure-mode-map (kbd "mcc") 'cider-eval-defun-at-point)
+(evil-define-key 'normal clojure-mode-map (kbd "mce") 'cider-eval-last-sexp)
+(evil-define-key 'normal clojure-mode-map (kbd "mcb") 'cider-interrupt)
+;; If you have time, check: https://github.com/abo-abo/hydra

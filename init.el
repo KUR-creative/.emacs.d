@@ -52,7 +52,6 @@
 (require 'ivy-smex)
 (global-set-key (kbd "M-x") 'ivy-smex)
 
-(setq make-backup-files nil)
 
 ;;----------------------------------------------------------------
 ;; You can split init.el with `load-file` function
@@ -65,7 +64,6 @@
 
 ;; M-: major-mode
 (setq-default indent-tabs-mode nil)
-(setq make-backup-files nil)
 
 ;;----------------------------------------------------------------
 ;(desktop-save-mode 1)
@@ -77,3 +75,9 @@
 (require 'elscreen-persist)
 ;(elscreen-persist-mode 1)
 (setq desktop-files-not-to-save "")
+
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
+(setq create-lockfiles nil)

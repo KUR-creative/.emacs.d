@@ -28,8 +28,13 @@
 ;; ref: https://emacs.stackexchange.com/questions/31390/how-to-define-mode-specific-keys-in-evil-mode
 
 (require 'evil)
+;; follows: https://docs.cider.mx/cider/0.26/usage/cider_mode.html
 (evil-define-key 'normal clojure-mode-map (kbd "mck") 'cider-load-buffer)
 (evil-define-key 'normal clojure-mode-map (kbd "mcc") 'cider-eval-defun-at-point)
 (evil-define-key 'normal clojure-mode-map (kbd "mce") 'cider-eval-last-sexp)
 (evil-define-key 'normal clojure-mode-map (kbd "mcb") 'cider-interrupt)
+(evil-define-key 'normal clojure-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
+
+;; follows: https://docs.cider.mx/cider/0.26/repl/keybindings.html
+(evil-define-key 'normal cider-repl-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
 ;; If you have time, check: https://github.com/abo-abo/hydra

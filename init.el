@@ -81,3 +81,6 @@
 (setq auto-save-default nil)
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 (setq create-lockfiles nil)
+
+;;----------------------------------------------------------------
+(global-set-key (kbd "<f12>") 'toggle-truncate-lines)

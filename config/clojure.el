@@ -34,10 +34,17 @@
 (require 'evil)
 ;; follows: https://docs.cider.mx/cider/0.26/usage/cider_mode.html
 (evil-define-key 'normal clojure-mode-map (kbd "mck") 'cider-load-buffer)
+(evil-define-key 'normal clojure-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
+;; evals
 (evil-define-key 'normal clojure-mode-map (kbd "mcc") 'cider-eval-defun-at-point)
 (evil-define-key 'normal clojure-mode-map (kbd "mce") 'cider-eval-last-sexp)
 (evil-define-key 'normal clojure-mode-map (kbd "mcb") 'cider-interrupt)
-(evil-define-key 'normal clojure-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
+(evil-define-key 'normal clojure-mode-map (kbd "mcvw") 'cider-eval-last-sexp-and-replace)
+(evil-define-key 'normal clojure-mode-map (kbd "me") 'cider-eval-last-sexp-to-repl) ; C-c M-e
+;; my evals: eval-this
+;(defun clj/eval-current-sexp () (interactive)
+
+
 ;; docs
 (evil-define-key 'normal clojure-mode-map (kbd "mcdd") 'cider-doc)
 (evil-define-key 'normal clojure-mode-map (kbd "mcdj") 'cider-javadoc)
@@ -47,3 +54,7 @@
 (evil-define-key 'normal cider-repl-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
 ;; If you have time, check: https://github.com/abo-abo/hydra
 
+
+;; 이게 왜 필요하냐면... trailing whitespace를 만들어야 last-sexp을 잘 쓸 수 있거든...
+;; 이 방법이 그나마 제일 쉬운 듯...
+(add-hook 'before-save-hook 'delete-trailing-whitespace)

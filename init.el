@@ -84,4 +84,4 @@
 
 ;;----------------------------------------------------------------
 (global-set-key (kbd "<f12>") 'toggle-truncate-lines)
-(global-set-key (kbd "<C-f1>") 'quit-window)
+(global-set-key (kbd "<S-f12>") 'quit-window)

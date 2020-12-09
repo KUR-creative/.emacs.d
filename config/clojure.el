@@ -26,7 +26,7 @@
 ;; ----------------------------------------------------------------------
 ;; Cider evil bindings
 
-;; It follows CIDER's default bindings. 
+;; It follows CIDER's default bindings.
 ;; C-c C-k => mck
 ;; C-c C-c => mcc
 ;; ref: https://emacs.stackexchange.com/questions/31390/how-to-define-mode-specific-keys-in-evil-mode
@@ -41,6 +41,15 @@
 (evil-define-key 'normal clojure-mode-map (kbd "mcb") 'cider-interrupt)
 (evil-define-key 'normal clojure-mode-map (kbd "mcvw") 'cider-eval-last-sexp-and-replace)
 (evil-define-key 'normal clojure-mode-map (kbd "me") 'cider-eval-last-sexp-to-repl) ; C-c M-e
+;; test
+(evil-define-key 'normal clojure-mode-map (kbd "mctt") 'cider-test-run-test)
+(evil-define-key 'normal clojure-mode-map (kbd "mcta") 'cider-test-rerun-test)
+(evil-define-key 'normal clojure-mode-map (kbd "mctn") 'cider-test-run-ns-tests)
+(evil-define-key 'normal clojure-mode-map (kbd "mctl") 'cider-test-run-loaded-tests)
+(evil-define-key 'normal clojure-mode-map (kbd "mctp") 'cider-test-run-project-tests)
+(evil-define-key 'normal clojure-mode-map (kbd "mctr") 'cider-test-rerun-failed-tests)
+(evil-define-key 'normal clojure-mode-map (kbd "mctb") 'cider-test-show-report)
+
 ;; my evals: eval-this
 ;(defun clj/eval-current-sexp () (interactive)
 

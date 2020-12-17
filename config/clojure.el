@@ -67,3 +67,7 @@
 ;; 이게 왜 필요하냐면... trailing whitespace를 만들어야 last-sexp을 잘 쓸 수 있거든...
 ;; 이 방법이 그나마 제일 쉬운 듯...
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ----------------------------------------------------------------------
+;; Enable ParEdit
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)

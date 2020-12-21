@@ -49,6 +49,8 @@
 (evil-define-key 'normal clojure-mode-map (kbd "mctp") 'cider-test-run-project-tests)
 (evil-define-key 'normal clojure-mode-map (kbd "mctr") 'cider-test-rerun-failed-tests)
 (evil-define-key 'normal clojure-mode-map (kbd "mctb") 'cider-test-show-report)
+;; Reloading code:  https://docs.cider.mx/cider/0.26/usage/misc_features.html#reloading-code
+(evil-define-key 'normal clojure-mode-map (kbd "mcnr") 'cider-ns-refresh)
 
 ;; my evals: eval-this
 ;(defun clj/eval-current-sexp () (interactive)

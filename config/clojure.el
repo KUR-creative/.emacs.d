@@ -51,11 +51,13 @@
 (evil-define-key 'normal clojure-mode-map (kbd "mctb") 'cider-test-show-report)
 ;; Reloading code:  https://docs.cider.mx/cider/0.26/usage/misc_features.html#reloading-code
 (evil-define-key 'normal clojure-mode-map (kbd "mcnr") 'cider-ns-refresh)
+
 ;; My own keys
 (defun kill-current-sexp () (interactive)
-  (paredit-backward) (kill-sexp))
+  (evil-forward-char) (paredit-backward) (kill-sexp))
 (evil-define-key 'normal clojure-mode-map (kbd "X") 'kill-current-sexp)
-;; Check this https://www.reddit.com/r/emacs/comments/5lmmg3/how_to_delete_a_whole_sexp_with_paredit/
+
+(global-set-key (kbd "<f8>") 'cider-popup-buffer-quit)
 
 ;; my evals: eval-this
 ;(defun clj/eval-current-sexp () (interactive)

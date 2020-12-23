@@ -55,6 +55,7 @@
 (defun kill-current-sexp () (interactive)
   (paredit-backward) (kill-sexp))
 (evil-define-key 'normal clojure-mode-map (kbd "X") 'kill-current-sexp)
+;; Check this https://www.reddit.com/r/emacs/comments/5lmmg3/how_to_delete_a_whole_sexp_with_paredit/
 
 ;; my evals: eval-this
 ;(defun clj/eval-current-sexp () (interactive)

@@ -83,5 +83,5 @@
 (setq create-lockfiles nil)
 
 ;;----------------------------------------------------------------
-(global-set-key (kbd "<S-f12>") 'toggle-truncate-lines)
-(global-set-key (kbd "<f12>") 'quit-window)
+(global-set-key (kbd "<f7>") 'toggle-truncate-lines)
+(global-set-key (kbd "<f8>") 'quit-window)

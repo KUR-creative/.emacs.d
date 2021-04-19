@@ -1,8 +1,14 @@
 (require 'cider)
+;; ----------------------------------------------------------------------
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
 (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+;; REPL coloring
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(setq cider-repl-use-clojure-font-lock t)
+
 
 (setq-default cider-save-file-on-load t) ;just save without prompting
 
@@ -54,7 +60,7 @@
 
 ;; My own keys
 (defun kill-current-sexp () (interactive)
-  (evil-forward-char) (paredit-backward) (kill-sexp))
+  (forward-char) (paredit-backward) (kill-sexp))
 (evil-define-key 'normal clojure-mode-map (kbd "X") 'kill-current-sexp)
 
 (global-set-key (kbd "<f8>") 'cider-popup-buffer-quit)
@@ -80,3 +86,14 @@
 ;; ----------------------------------------------------------------------
 ;; Enable ParEdit
 (add-hook 'clojure-mode-hook #'enable-paredit-mode)
+
+
+
+;; ----------------------------------------------------------------------
+;; Quit test-mode window using "q"
+
+(evil-define-key 'normal cider-test-mode-map (kbd " ") 'cider-popup-buffer-quit)
+(add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+
+(setq cider-show-error-buffer nil)

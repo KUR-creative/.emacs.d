@@ -8,7 +8,7 @@
 (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
 (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
 (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
-(define-key evil-normal-state-map (kbd "C-l") 'windmove-right) 
+(define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
 (defun insert-space-after-point () (interactive)
   (progn (forward-char) (insert " ") (backward-char)))
 (define-key evil-normal-state-map " " 'insert-space-after-point)
@@ -57,3 +57,5 @@
 
 (add-to-list 'evil-emacs-state-modes 'fundamental-mode) ;; Disable evli in *cider-error*
 ;(add-to-list 'evil-emacs-state-modes 'help-mode)
+
+;; TODO: W를 저장 커맨드로 넣기

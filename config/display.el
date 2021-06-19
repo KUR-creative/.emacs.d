@@ -4,7 +4,7 @@
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
-;(toggle-truncate-lines) 
+;(toggle-truncate-lines)
 (set-default 'truncate-lines t)
 
 (global-display-line-numbers-mode) ;emacs 26
@@ -17,19 +17,22 @@
 
 (global-set-key (kbd "<f2>") 'dired)
 
-;111111111222222222333333333344444444445555555555666666666677777
+;1111111112222222223333333333444444444455555555556666666666777777777788888
+
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
-                    :height 110
+                    :height 105
                     :weight 'normal
                     :width 'normal)
 
 (use-package hl-todo
-  :hook (prog-mode . hl-todo-mode)
+  :hook ((prog-mode . hl-todo-mode)
+         (text-mode . hl-todo-mode))
   :config
   (setq hl-todo-highlight-punctuation ":"
         hl-todo-keyword-faces
         `(("TODO"       warning bold)
+          ("REFACTOR"   warning bold)
           ("FIXME"      error bold)
           ("HACK"       font-lock-constant-face bold)
           ("REVIEW"     font-lock-keyword-face bold)

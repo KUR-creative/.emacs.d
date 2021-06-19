@@ -8,7 +8,7 @@
 (define-key evil-normal-state-map (kbd "C-h") 'windmove-left)
 (define-key evil-normal-state-map (kbd "C-j") 'windmove-down)
 (define-key evil-normal-state-map (kbd "C-k") 'windmove-up)
-(define-key evil-normal-state-map (kbd "C-l") 'windmove-right) 
+(define-key evil-normal-state-map (kbd "C-l") 'windmove-right)
 (defun insert-space-after-point () (interactive)
   (progn (forward-char) (insert " ") (backward-char)))
 (define-key evil-normal-state-map " " 'insert-space-after-point)
@@ -19,6 +19,13 @@
   (let ((oldpos (point))) (end-of-line) (newline-and-indent)))
 (define-key evil-normal-state-map
   (kbd "RET") 'open-line-with-point)
+
+
+(define-key evil-normal-state-map (kbd "M-w") 'evil-previous-line)
+(define-key evil-normal-state-map (kbd "M-s") 'evil-next-line)
+(define-key evil-normal-state-map (kbd "M-d") 'evil-forward-char)
+(define-key evil-normal-state-map (kbd "M-a") 'evil-backward-char)
+
 
 ;;----------------------------------------------------------------
 ;; custom commands

@@ -23,7 +23,7 @@
  '(inhibit-startup-screen t)
  '(initial-frame-alist '((fullscreen . maximized)))
  '(package-selected-packages
-   '(hl-todo paredit adjust-parens gnu-elpa-keyring-update elscreen-buffer-group markdown-mode impatient-mode prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer))
+   '(docker-tramp hl-todo paredit adjust-parens gnu-elpa-keyring-update elscreen-buffer-group markdown-mode impatient-mode prettier-js typescript tide rainbow-delimiters rjsx-mode js2-mode evil-tabs company use-package-hydra smex evil ivy-explorer))
  '(typescript-indent-level 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -69,10 +69,11 @@
 ;(desktop-save-mode 1)
 
 ;; Order is important! revive -> elscreen
-(load-file "~/.emacs.d/libs/revive/revive.el")
-(load-file "~/.emacs.d/libs/elscreen-persist/elscreen-persist.el")
+;; 아마도 elscreen이 이맥스를 느리게 하는 것 같아 제거.
+;;(load-file "~/.emacs.d/libs/revive/revive.el")
+;;(load-file "~/.emacs.d/libs/elscreen-persist/elscreen-persist.el")
 
-(require 'elscreen-persist)
+;;(require 'elscreen-persist)
 ;(elscreen-persist-mode 1)
 (setq desktop-files-not-to-save "")
 
@@ -85,3 +86,26 @@
 ;;----------------------------------------------------------------
 (global-set-key (kbd "<f7>") 'toggle-truncate-lines)
 (global-set-key (kbd "<f12>") 'quit-window)
+
+;;----------------------------------------------------------------
+;; Open files in Docker containers like so: /docker:drunk_bardeen:/etc/passwd
+(push
+ (cons
+  "docker"
+  '((tramp-login-program "docker")
+    (tramp-login-args (("exec" "-it") ("%h") ("/bin/bash")))
+    (tramp-remote-shell "/bin/sh")
+    (tramp-remote-shell-args ("-i") ("-c"))))
+ tramp-methods)
+
+(defadvice tramp-completion-handle-file-name-all-completions
+  (around dotemacs-completion-docker activate)
+  "(tramp-completion-handle-file-name-all-completions \"\" \"/docker:\" returns
+    a list of active Docker container names, followed by colons."
+  (if (equal (ad-get-arg 1) "/docker:")
+      (let* ((dockernames-raw (shell-command-to-string "docker ps | perl -we 'use strict; $_ = <>; m/^(.*)NAMES/ or die; my $offset = length($1); while(<>) {substr($_, 0, $offset, q()); chomp; for(split m/\\W+/) {print qq($_:\n)} }'"))
+             (dockernames (cl-remove-if-not
+                           #'(lambda (dockerline) (string-match ":$" dockerline))
+                           (split-string dockernames-raw "\n"))))
+        (setq ad-return-value dockernames))
+    ad-do-it))

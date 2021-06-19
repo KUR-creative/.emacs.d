@@ -20,14 +20,19 @@
 (define-key evil-normal-state-map
   (kbd "RET") 'open-line-with-point)
 
-
 (define-key evil-normal-state-map (kbd "M-w") 'evil-previous-line)
 (define-key evil-normal-state-map (kbd "M-s") 'evil-next-line)
 (define-key evil-normal-state-map (kbd "M-d") 'evil-forward-char)
 (define-key evil-normal-state-map (kbd "M-a") 'evil-backward-char)
 
+(define-key evil-normal-state-map (kbd "C-M-a") 'windmove-left)
+(define-key evil-normal-state-map (kbd "C-M-s") 'windmove-down)
+(define-key evil-normal-state-map (kbd "C-M-w") 'windmove-up)
+(define-key evil-normal-state-map (kbd "C-M-d") 'windmove-right)
 
-;;----------------------------------------------------------------
+(define-key evil-normal-state-map (kbd "C-S-s") 'paredit-splice-sexp)
+;;-------------------------------------------------------------
+
 ;; custom commands
 (evil-tabs-mode 1)
 (global-evil-tabs-mode 1)
@@ -64,3 +69,5 @@
 
 (add-to-list 'evil-emacs-state-modes 'fundamental-mode) ;; Disable evli in *cider-error*
 ;(add-to-list 'evil-emacs-state-modes 'help-mode)
+
+;; TODO: W를 저장 커맨드로 넣기

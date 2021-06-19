@@ -1,24 +1,15 @@
 (require 'cider)
 
 ;; ----------------------------------------------------------------------
-;; Settings
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; 이게 왜 필요하냐면... trailing whitespace를 만들어야 last-sexp(mce in normal mode)을 잘 쓸 수 있거든...
-;; 이 방법이 그나마 제일 쉬운 듯...
-
-;; Enable ParEdit
-(add-hook 'clojure-mode-hook #'enable-paredit-mode)
-
-;; Do not popup
-;;(setq cider-show-error-buffer 'only-in-repl)
-(setq cider-show-error-buffer nil)
-
-;; ----------------------------------------------------------------------
 (add-hook 'cider-repl-mode-hook #'company-mode)
 (add-hook 'cider-mode-hook #'company-mode)
 (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+;; REPL coloring
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(setq cider-repl-use-clojure-font-lock t)
+
 
 (setq-default cider-save-file-on-load t) ;just save without prompting
 
@@ -70,7 +61,7 @@
 
 ;; My own keys
 (defun kill-current-sexp () (interactive)
-  (evil-forward-char) (paredit-backward) (kill-sexp))
+  (forward-char) (paredit-backward) (kill-sexp))
 (evil-define-key 'normal clojure-mode-map (kbd "X") 'kill-current-sexp)
 
 (global-set-key (kbd "<f8>") 'cider-popup-buffer-quit)
@@ -87,3 +78,23 @@
 ;; follows: https://docs.cider.mx/cider/0.26/repl/keybindings.html
 (evil-define-key 'normal cider-repl-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
 ;; If you have time, check: https://github.com/abo-abo/hydra
+
+
+;; 이게 왜 필요하냐면... trailing whitespace를 만들어야 last-sexp을 잘 쓸 수 있거든...
+;; 이 방법이 그나마 제일 쉬운 듯...
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; ----------------------------------------------------------------------
+;; Enable ParEdit
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)
+
+
+
+;; ----------------------------------------------------------------------
+;; Quit test-mode window using "q"
+
+(evil-define-key 'normal cider-test-mode-map (kbd " ") 'cider-popup-buffer-quit)
+(add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
+
+(setq cider-show-error-buffer nil)

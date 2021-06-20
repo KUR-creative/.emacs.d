@@ -40,12 +40,19 @@
 
 (require 'evil)
 ;; Follows: https://docs.cider.mx/cider/0.26/usage/cider_mode.html
-(evil-define-key 'normal clojure-mode-map (kbd "mck") 'cider-load-buffer)
 (evil-define-key 'normal clojure-mode-map (kbd "mcz") 'cider-switch-to-repl-buffer)
+
 ;; Evals
 (evil-define-key 'normal clojure-mode-map (kbd "mcc") 'cider-eval-defun-at-point)
+(evil-define-key 'normal clojure-mode-map (kbd "mck") 'cider-load-buffer)
 (evil-define-key 'normal clojure-mode-map (kbd "mce") 'cider-eval-last-sexp)
 (evil-define-key 'normal clojure-mode-map (kbd "mcb") 'cider-interrupt)
+
+;; left hand evals
+(evil-define-key 'normal clojure-mode-map (kbd "zx") 'cider-eval-defun-at-point)
+(evil-define-key 'normal clojure-mode-map (kbd "zc") 'cider-load-buffer)
+(evil-define-key 'normal clojure-mode-map (kbd "za") 'cider-eval-last-sexp)
+
 (evil-define-key 'normal clojure-mode-map (kbd "mcvw") 'cider-eval-last-sexp-and-replace)
 (evil-define-key 'normal clojure-mode-map (kbd "me") 'cider-eval-last-sexp-to-repl) ; C-c M-e
 ;; Test

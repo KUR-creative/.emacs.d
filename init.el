@@ -113,4 +113,4 @@
 ;;----------------------------------------------------------------
 ;; Turn off major-mode selection by shebang
 ;; See https://stackoverflow.com/a/5328338
-(setq interpreter-mode-alist nil)
+;; (setq interpreter-mode-alist nil)
